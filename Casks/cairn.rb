@@ -1,6 +1,6 @@
 cask "cairn" do
-  version "0.1.3"
-  sha256 "f4db5fb000b4b939a763d2dad59f0ce0a454fcbe87cbe490e21c7081ee6a2632"
+  version "0.1.4"
+  sha256 "d33d4cf52098555b373cb25c6547d6c16f8815905c24126799322b28de4b98cb"
 
   url "https://github.com/jiehaoZ/Cairn/releases/download/v#{version}/Cairn-#{version}-arm64.dmg"
   name "Cairn"
