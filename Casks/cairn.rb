@@ -13,13 +13,16 @@ cask "cairn" do
   end
 
   depends_on arch: :arm64
+  depends_on macos: :sonoma
 
   app "Cairn.app"
 
   # The app is not notarized; without this macOS reports it as damaged.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Cairn.app"]
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:           ["-dr", "com.apple.quarantine", "{{appdir}}/Cairn.app"],
+        writable_paths: ["Cairn.app"],
+        writable_base:  :appdir
   end
 
   zap trash: "~/Library/Application Support/Cairn"
