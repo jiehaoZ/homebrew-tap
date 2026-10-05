@@ -17,13 +17,5 @@ cask "cairn" do
 
   app "Cairn.app"
 
-  # The app is not notarized; without this macOS reports it as damaged.
-  postflight_steps do
-    run "/usr/bin/xattr",
-        args:           ["-dr", "com.apple.quarantine", "{{appdir}}/Cairn.app"],
-        writable_paths: ["Cairn.app"],
-        writable_base:  :appdir
-  end
-
   zap trash: "~/Library/Application Support/Cairn"
 end
